@@ -1,11 +1,11 @@
 public class SelfCheckout {
     EventHandler handler;
     Transaction transaction;
-    FakeDB db;
+    UserInterface userInterface;
 
     SelfCheckout() {
         handler = new EventHandler(this);
-        db = new FakeDB();
+        userInterface = new UserInterface();
     }
 
     void addItem(Item item) {
@@ -14,5 +14,17 @@ public class SelfCheckout {
         } else {
             transaction.addItem(item);
         }
+    }
+
+    void handleScan(String itemId) {
+        handler.handleScan(itemId);
+    }
+
+    void handleError(Exception e) {
+
+    }
+
+    Transaction getTransaction() {
+        return transaction;
     }
 }

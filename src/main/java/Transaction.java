@@ -20,4 +20,8 @@ public class Transaction {
         items.add(item);
         total += item.getPrice();
     }
+
+    List<Item> getItems() {
+        return items;
+    }
 }

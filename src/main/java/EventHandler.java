@@ -1,8 +1,10 @@
 public class EventHandler {
     SelfCheckout instance;
+    FakeDB db;
 
     EventHandler(SelfCheckout instance) {
         this.instance = instance;
+        db = new FakeDB();
     }
 
     void handleScan(String itemId) {
@@ -15,6 +17,7 @@ public class EventHandler {
     }
 
     Item getItemFromDB(String itemId) {
-
+        String[] item = db.getData(itemId);
+        return new Item(item[0], item[1], item[2]);
     }
 }

@@ -22,4 +22,8 @@ public class FakeDB {
         data.put("0010", new String[]{"0010", "oranges", "4.50"});
     }
 
+    String[] getData(String itemId) {
+        return data.get(itemId);
+    }
+
 }
