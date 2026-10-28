@@ -143,7 +143,10 @@ public class UserInterface {
     panel.add(new JScrollPane(receiptText), BorderLayout.CENTER);
 
     JButton finishBtn = new JButton("Finish & Return");
-    finishBtn.addActionListener(e -> cardLayout.show(cardPanel, "WELCOME"));
+    finishBtn.addActionListener(e -> {
+      checkout.cancelTransaction(); // Clears the underlying transaction data for the next customer
+      cardLayout.show(cardPanel, "WELCOME");
+    });
     panel.add(finishBtn, BorderLayout.SOUTH);
 
     return panel;
