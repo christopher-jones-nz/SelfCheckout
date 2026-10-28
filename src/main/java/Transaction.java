@@ -21,6 +21,11 @@ public class Transaction {
         total += item.getPrice();
     }
 
+    void removeItem(Item item) {
+        items.remove(item);
+        total -= item.getPrice();
+    }
+
     List<Item> getItems() {
         return items;
     }

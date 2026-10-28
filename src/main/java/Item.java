@@ -9,6 +9,10 @@ public class Item {
         this.price = Float.parseFloat(price);
     }
 
+    String getName() {
+        return name;
+    }
+
     float getPrice() {
         return price;
     }

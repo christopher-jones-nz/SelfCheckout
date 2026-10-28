@@ -5,7 +5,7 @@ public class SelfCheckout {
 
     SelfCheckout() {
         handler = new EventHandler(this);
-        userInterface = new UserInterface();
+        userInterface = new UserInterface(this);
     }
 
     void addItem(Item item) {
@@ -28,9 +28,12 @@ public class SelfCheckout {
         return transaction;
     }
 
+    void cancelTransaction() {
+        transaction = new Transaction();
+    }
+
     public static void main(String[] args) {
         System.out.println("Starting SelfCheckout...");
-
-        SelfCheckout system = new SelfCheckout();
+        new SelfCheckout();
     }
 }
