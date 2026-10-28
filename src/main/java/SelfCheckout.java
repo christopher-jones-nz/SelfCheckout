@@ -27,4 +27,10 @@ public class SelfCheckout {
     Transaction getTransaction() {
         return transaction;
     }
+
+    public static void main(String[] args) {
+        System.out.println("Starting SelfCheckout...");
+
+        SelfCheckout system = new SelfCheckout();
+    }
 }
