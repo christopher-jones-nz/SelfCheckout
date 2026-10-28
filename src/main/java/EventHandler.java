@@ -18,6 +18,6 @@ public class EventHandler {
 
     Item getItemFromDB(String itemId) {
         String[] item = db.getData(itemId);
-        return new Item(item[0], item[1], item[2]);
+        return new Item(item[0], item[1], Float.parseFloat(item[2]));
     }
 }

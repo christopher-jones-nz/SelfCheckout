@@ -3,10 +3,10 @@ public class Item {
     final String name;
     final float price;
 
-    Item(String id, String name, String price) {
+    Item(String id, String name, float price) {
         this.id = id;
         this.name = name;
-        this.price = Float.parseFloat(price);
+        this.price = price;
     }
 
     String getName() {

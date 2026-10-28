@@ -66,14 +66,43 @@ public class UserInterface {
     totalLabel = new JLabel("Total: $0.00", SwingConstants.CENTER);
     totalLabel.setFont(new Font("Arial", Font.BOLD, 18));
 
-    JButton addItemBtn = new JButton("Add Item (Simulated)");
+    JButton addItemBtn = new JButton("Add Item");
     JButton payNowBtn = new JButton("Pay Now");
     JButton cancelBtn = new JButton("Cancel Transaction");
 
-    // Add Item Action (Simulating scanning an item for demonstration)
+    // Add Item Action with 4 options
     addItemBtn.addActionListener(e -> {
-      System.out.println("Item added clicked");
-      refreshCartUI();
+      String[] options = { "Apple ($1.50)", "Banana ($0.99)", "Carrot ($0.50)", "Date ($2.00)" };
+      int choice = JOptionPane.showOptionDialog(
+          frame,
+          "Select an item to scan:",
+          "Scan Item",
+          JOptionPane.DEFAULT_OPTION,
+          JOptionPane.PLAIN_MESSAGE,
+          null,
+          options,
+          options[0]);
+
+      Item newItem = null;
+      switch (choice) {
+        case 0:
+          newItem = new Item("001", "Apple", 1.50f);
+          break;
+        case 1:
+          newItem = new Item("002", "Banana", 0.99f);
+          break;
+        case 2:
+          newItem = new Item("003", "Carrot", 0.50f);
+          break;
+        case 3:
+          newItem = new Item("004", "Date", 2.00f);
+          break;
+      }
+
+      if (newItem != null) {
+        checkout.addItem(newItem);
+        refreshCartUI();
+      }
     });
 
     // Pay Now Action
@@ -86,13 +115,13 @@ public class UserInterface {
     cancelBtn.addActionListener(e -> {
       int choice = JOptionPane.showConfirmDialog(
           frame,
-          "Are you sure you want to cancel this transcation?",
+          "Are you sure you want to cancel this transaction?",
           "Cancel Transaction",
           JOptionPane.YES_NO_OPTION);
 
       if (choice == JOptionPane.YES_OPTION) {
         checkout.cancelTransaction();
-        cardLayout.show(cardPanel, "Welcome");
+        cardLayout.show(cardPanel, "WELCOME");
       }
     });
 
