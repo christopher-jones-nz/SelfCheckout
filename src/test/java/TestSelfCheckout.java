@@ -20,8 +20,8 @@ public class TestSelfCheckout {
         // data.put("0004", new String[]{"0004", "milk", "4.20"});
         Transaction transaction = sc.getTransaction();
         List<Item> items = transaction.getItems();
-        assertEquals("0004", items.getFirst().id);
-        assertEquals("milk", items.getFirst().name);
-        assertEquals(4.20, items.getFirst().price, 0.1);
+        assertEquals("0004", items.get(0).id);
+        assertEquals("milk", items.get(0).name);
+        assertEquals(4.20, items.get(0).price, 0.1);
     }
 }
