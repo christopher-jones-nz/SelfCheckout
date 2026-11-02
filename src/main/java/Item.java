@@ -9,7 +9,6 @@ public class Item {
         this.name = name;
         this.price = price;
         this.image = image;
-        this.price = price;
     }
 
     String getName() {
@@ -18,5 +17,20 @@ public class Item {
 
     float getPrice() {
         return price;
+    }
+
+    /**
+     * Return display string representing this item.
+     * Format is "NAME ($PRICE)".
+     * E.g. "Apple ($1.50)"
+     */
+    String toDisplayString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.name);
+        sb.append(" ($");
+        sb.append(this.price);
+        sb.append(")");
+
+        return sb.toString();
     }
 }
