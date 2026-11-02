@@ -86,7 +86,7 @@ public class UserInterface {
     JButton payNowBtn = new JButton("Pay Now");
     JButton cancelBtn = new JButton("Cancel Transaction");
 
-    // Add Item Action with 4 options
+    // Add Item Action with options
     addItemBtn.addActionListener(e -> {
       List<Item> allFoodItems = checkout.getAllFoodOptions();
       int n = allFoodItems.size();
@@ -102,7 +102,7 @@ public class UserInterface {
           options,
           options[0]);
 
-      if (choice > 0 && choice < n) {
+      if (choice > -1 && choice < n) {
         Item newItem = allFoodItems.get(choice);
         checkout.addItem(newItem);
         refreshCartUI();
